@@ -22,11 +22,17 @@ class Cuenta():
         return self.cant
 
     def setTitular(self,titular):
-        if titular != "":
-            self.titular = titular
+        if titular == "":
+            nom = input("El nombre es invalido, ingrese el nombre nuevamente: ")
+            self.setTitular(nom)
+        elif titular.isnumeric():
+            nom = input("El nombre es invalido, ingrese el nombre nuevamente: ")
+            self.setTitular(nom)
+        elif len(titular) <= 2:
+            nom = input("El nombre es invalido, ingrese el nombre nuevamente: ")
+            self.setTitular(nom)
         else:
-            nuevoTitular = input("Ingreso el nombre incorrecto. ingrese nuevamente: ")
-            self.setTitular(nuevoTitular)
+            self.titular = titular
     
     def setCantidad(self,cant):
         self.cant = self.validarCantidad(cant)
